@@ -1,0 +1,206 @@
+=== RUN   TestManualBenchConfigs
+n,t,keygen_s,sign_s,total_s,keygen_msg,sign_msg,keygen_bytes,sign_bytes
+2026-03-25T14:04:04.582-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: ecdsa-keygen round 1 starting
+2026-03-25T14:04:04.582-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: ecdsa-keygen round 1 starting
+2026-03-25T14:04:04.582-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: ecdsa-keygen round 1 starting
+2026-03-25T14:04:04.596-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:04:04.596-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:04:04.596-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:04:04.596-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:04:04.596-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:04:04.612-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:04:05.743-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 1.146575541s
+
+2026-03-25T14:04:06.230-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 1.617957208s
+
+2026-03-25T14:04:07.017-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 2.42041675s
+
+2026-03-25T14:04:07.393-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 2.796716792s
+
+2026-03-25T14:04:07.940-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 3.344228584s
+
+2026-03-25T14:04:08.259-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 3.662343208s
+
+2026-03-25T14:04:09.667-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 2 started
+2026-03-25T14:04:09.781-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 2 started
+2026-03-25T14:04:09.892-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 2 started
+2026-03-25T14:04:09.892-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:04:09.892-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:04:09.892-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:04:09.892-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:04:09.892-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:04:09.892-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:04:09.893-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:04:09.893-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:04:09.893-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:04:09.893-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:04:09.893-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:04:09.893-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:04:09.929-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 3 started
+2026-03-25T14:04:09.930-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 3 started
+2026-03-25T14:04:09.931-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 3 started
+2026-03-25T14:04:09.967-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 4 started
+2026-03-25T14:04:09.967-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: ecdsa-keygen finished!
+2026-03-25T14:04:09.968-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 4 started
+2026-03-25T14:04:09.968-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: ecdsa-keygen finished!
+2026-03-25T14:04:09.968-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 4 started
+2026-03-25T14:04:09.968-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: ecdsa-keygen finished!
+2026-03-25T14:04:09.969-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: signing round 1 starting
+2026-03-25T14:04:09.969-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: signing round 1 starting
+2026-03-25T14:04:09.969-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: signing round 1 starting
+2026-03-25T14:04:10.171-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 2 started
+2026-03-25T14:04:10.190-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 2 started
+2026-03-25T14:04:10.192-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 2 started
+2026-03-25T14:04:10.298-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 3 started
+2026-03-25T14:04:10.300-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 3 started
+2026-03-25T14:04:10.301-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 3 started
+2026-03-25T14:04:10.301-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 4 started
+2026-03-25T14:04:10.301-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 4 started
+2026-03-25T14:04:10.301-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 4 started
+2026-03-25T14:04:10.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 5 started
+2026-03-25T14:04:10.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 5 started
+2026-03-25T14:04:10.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 5 started
+2026-03-25T14:04:10.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 6 started
+2026-03-25T14:04:10.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 6 started
+2026-03-25T14:04:10.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 6 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 7 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 7 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 7 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 8 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 8 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 8 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 9 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 9 started
+2026-03-25T14:04:10.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 9 started
+2026-03-25T14:04:10.305-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 10 started
+2026-03-25T14:04:10.305-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: signing finished!
+2026-03-25T14:04:10.305-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 10 started
+2026-03-25T14:04:10.305-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 10 started
+2026-03-25T14:04:10.305-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: signing finished!
+2026-03-25T14:04:10.305-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: signing finished!
+3,2,5.386474,0.336640,5.723114,15,36,414209,59692
+--- PASS: TestManualBenchConfigs (5.72s)
+PASS
+ok  	github.com/bnb-chain/tss-lib/v2/ecdsa	6.195s
+        6.56 real        41.13 user         1.88 sys
+           211697664  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               25253  page reclaims
+                 702  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+               25052  signals received
+               27723  voluntary context switches
+               86195  involuntary context switches
+          3066449834  instructions retired
+          2823932597  cycles elapsed
+            29951488  peak memory footprint
+=== RUN   TestManualBenchConfigs
+n,t,keygen_s,sign_s,total_s,keygen_msg,sign_msg,keygen_bytes,sign_bytes
+2026-03-25T14:04:10.929-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: ecdsa-keygen round 1 starting
+2026-03-25T14:04:10.929-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: ecdsa-keygen round 1 starting
+2026-03-25T14:04:10.929-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: ecdsa-keygen round 1 starting
+2026-03-25T14:04:10.938-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:04:10.938-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:04:10.938-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:04:10.938-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:04:10.938-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:04:10.938-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:04:13.519-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 2.580662459s
+
+2026-03-25T14:04:15.502-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 4.564131209s
+
+2026-03-25T14:04:18.776-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 7.820337s
+
+2026-03-25T14:04:18.943-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:04:18.943-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:04:21.598-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 10.659642958s
+
+2026-03-25T14:04:22.495-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 11.557456084s
+
+2026-03-25T14:04:23.457-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 12.518999083s
+
+2026-03-25T14:04:25.011-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 2 started
+2026-03-25T14:04:25.022-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 2 started
+2026-03-25T14:04:25.030-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 2 started
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:04:25.030-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:04:25.067-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 3 started
+2026-03-25T14:04:25.067-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 3 started
+2026-03-25T14:04:25.068-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 3 started
+2026-03-25T14:04:25.105-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 4 started
+2026-03-25T14:04:25.105-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: ecdsa-keygen finished!
+2026-03-25T14:04:25.106-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 4 started
+2026-03-25T14:04:25.106-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: ecdsa-keygen finished!
+2026-03-25T14:04:25.106-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 4 started
+2026-03-25T14:04:25.106-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: ecdsa-keygen finished!
+2026-03-25T14:04:25.107-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: signing round 1 starting
+2026-03-25T14:04:25.107-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: signing round 1 starting
+2026-03-25T14:04:25.107-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: signing round 1 starting
+2026-03-25T14:04:25.297-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 2 started
+2026-03-25T14:04:25.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 2 started
+2026-03-25T14:04:25.315-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 2 started
+2026-03-25T14:04:25.402-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 3 started
+2026-03-25T14:04:25.408-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 3 started
+2026-03-25T14:04:25.427-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 3 started
+2026-03-25T14:04:25.427-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 4 started
+2026-03-25T14:04:25.427-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 4 started
+2026-03-25T14:04:25.428-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 4 started
+2026-03-25T14:04:25.429-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 5 started
+2026-03-25T14:04:25.429-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 5 started
+2026-03-25T14:04:25.429-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 5 started
+2026-03-25T14:04:25.429-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 6 started
+2026-03-25T14:04:25.429-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 6 started
+2026-03-25T14:04:25.429-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 6 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 7 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 7 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 7 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 8 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 8 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 8 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 9 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 9 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 9 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 10 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 10 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: signing finished!
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: signing finished!
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 10 started
+2026-03-25T14:04:25.431-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: signing finished!
+3,2,14.176369,0.325853,14.502222,15,36,414209,59693
+--- PASS: TestManualBenchConfigs (14.50s)
+PASS
+ok  	github.com/bnb-chain/tss-lib/v2/ecdsa	14.762s
+       15.12 real       111.10 user         3.60 sys
+           218398720  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               25081  page reclaims
+                 702  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+               70146  signals received
+               78850  voluntary context switches
+              229312  involuntary context switches
+          3031096430  instructions retired
+          2440744044  cycles elapsed
+            29886016  peak memory footprint

@@ -15,6 +15,7 @@ import (
 	"runtime"
 	"sync/atomic"
 	"testing"
+	"time"
 
 	"github.com/btcsuite/btcd/btcec/v2"
 	"github.com/ipfs/go-log"
@@ -70,6 +71,12 @@ func TestE2EConcurrent(t *testing.T) {
 	}
 
 	var ended int32
+	// === BENCHMARK METRICS ===
+	startTime := time.Now()
+
+	var msgCount int64 = 0
+	var byteCount int64 = 0
+
 signing:
 	for {
 		fmt.Printf("ACTIVE GOROUTINES: %d\n", runtime.NumGoroutine())
@@ -80,6 +87,11 @@ signing:
 			break signing
 
 		case msg := <-outCh:
+			atomic.AddInt64(&msgCount, 1)
+
+			if bz, _, err := msg.WireBytes(); err == nil {
+				atomic.AddInt64(&byteCount, int64(len(bz)))
+			}
 			dest := msg.GetTo()
 			if dest == nil {
 				for _, P := range parties {
@@ -125,6 +137,12 @@ signing:
 				t.Log("ECDSA signing test done.")
 				// END ECDSA verify
 
+				elapsed := time.Since(startTime)
+
+				fmt.Println("\n=== BENCHMARK RESULTS ===")
+				fmt.Printf("Total Time: %s\n", elapsed)
+				fmt.Printf("Total Messages: %d\n", msgCount)
+				fmt.Printf("Total Bytes: %d\n", byteCount)
 				break signing
 			}
 		}

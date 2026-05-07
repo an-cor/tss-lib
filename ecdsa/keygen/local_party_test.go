@@ -16,6 +16,7 @@ import (
 	"runtime"
 	"sync/atomic"
 	"testing"
+	"time"
 
 	"github.com/ipfs/go-log"
 	"github.com/stretchr/testify/assert"
@@ -212,6 +213,11 @@ func TestE2EConcurrentAndSaveFixtures(t *testing.T) {
 
 	// PHASE: keygen
 	var ended int32
+	// === BENCHMARK METRICS ===
+	startTime := time.Now()
+
+	var msgCount int64 = 0
+	var byteCount int64 = 0
 keygen:
 	for {
 		fmt.Printf("ACTIVE GOROUTINES: %d\n", runtime.NumGoroutine())
@@ -222,6 +228,11 @@ keygen:
 			break keygen
 
 		case msg := <-outCh:
+			atomic.AddInt64(&msgCount, 1)
+
+			if bz, _, err := msg.WireBytes(); err == nil {
+				atomic.AddInt64(&byteCount, int64(len(bz)))
+			}
 			dest := msg.GetTo()
 			if dest == nil { // broadcast!
 				for _, P := range parties {
@@ -332,6 +343,13 @@ keygen:
 
 				t.Logf("Start goroutines: %d, End goroutines: %d", startGR, runtime.NumGoroutine())
 
+				elapsed := time.Since(startTime)
+
+				fmt.Println("\n=== KEYGEN BENCHMARK RESULTS ===")
+				fmt.Printf("Total Time: %s\n", elapsed)
+				fmt.Printf("Total Messages: %d\n", msgCount)
+				fmt.Printf("Total Bytes: %d\n", byteCount)
+				
 				break keygen
 			}
 		}

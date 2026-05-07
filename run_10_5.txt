@@ -1,0 +1,836 @@
+=== RUN   TestManualBenchConfigs
+n,t,keygen_s,sign_s,total_s,keygen_msg,sign_msg,keygen_bytes,sign_bytes
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {9,P[10]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {4,P[5]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {3,P[4]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {5,P[6]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {7,P[8]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {8,P[9]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.447-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {6,P[7]}: ecdsa-keygen round 1 starting
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.462-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.462-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.471-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.475-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.475-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:06:33.482-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.482-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.471-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:33.483-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:06:41.470-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.470-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.470-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.470-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.470-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.481-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.481-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.471-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.482-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:41.616-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:44.081-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 10.619249167s
+
+2026-03-25T14:06:44.508-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 10.9415215s
+
+2026-03-25T14:06:44.516-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 11.054043833s
+
+2026-03-25T14:06:45.838-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 12.267575209s
+
+2026-03-25T14:06:49.462-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.472-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.580-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.580-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.580-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.580-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.584-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.598-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.598-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:49.644-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:50.881-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 17.399359041s
+
+2026-03-25T14:06:55.894-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 22.433365833s
+
+2026-03-25T14:06:56.640-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 23.177823458s
+
+2026-03-25T14:06:57.463-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.463-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.464-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.464-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.463-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.466-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.475-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.475-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:06:57.561-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:00.123-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 26.661925583s
+
+2026-03-25T14:07:02.368-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 28.906211375s
+
+2026-03-25T14:07:02.930-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 29.468682916s
+
+2026-03-25T14:07:04.187-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 30.715419458s
+
+2026-03-25T14:07:05.220-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 31.744900541s
+
+2026-03-25T14:07:05.469-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:05.471-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:05.472-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:05.472-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:05.472-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:05.499-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:08.791-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 35.316090542s
+
+2026-03-25T14:07:11.019-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 37.537009042s
+
+2026-03-25T14:07:13.464-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:13.464-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:13.464-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:13.491-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:13.491-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:14.260-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 40.799179375s
+
+2026-03-25T14:07:15.190-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 41.718426417s
+
+2026-03-25T14:07:15.689-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 42.228111292s
+
+2026-03-25T14:07:16.059-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 42.597045875s
+
+2026-03-25T14:07:17.018-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 43.557262708s
+
+2026-03-25T14:07:20.851-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 47.389416917s
+
+2026-03-25T14:07:29.574-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {6,P[7]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.719-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.730-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.748-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {7,P[8]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.764-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {9,P[10]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.779-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.792-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.810-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.812-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {8,P[9]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.901-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: ecdsa-keygen round 2 started
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.903-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.904-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.905-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.906-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.907-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.908-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.909-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.910-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.911-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.912-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:07:29.912-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.912-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.912-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:07:29.913-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.913-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.913-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.913-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:07:29.913-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.914-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.914-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:07:29.914-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.914-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.914-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:07:29.915-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.902-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:07:29.915-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.915-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:07:29.915-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:07:29.901-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:07:29.916-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:07:29.917-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:07:29.918-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:07:29.958-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {8,P[9]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.961-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.962-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {6,P[7]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.962-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.963-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {7,P[8]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.964-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.965-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {9,P[10]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.972-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.972-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:29.982-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: ecdsa-keygen round 3 started
+2026-03-25T14:07:30.240-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.240-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {3,P[4]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.244-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.244-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.261-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.261-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {4,P[5]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.291-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.291-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.309-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {9,P[10]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.309-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {9,P[10]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.335-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {6,P[7]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.335-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {6,P[7]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.339-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.339-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {5,P[6]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.347-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {7,P[8]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.347-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {7,P[8]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.348-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.349-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.371-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {8,P[9]}: ecdsa-keygen round 4 started
+2026-03-25T14:07:30.371-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {8,P[9]}: ecdsa-keygen finished!
+2026-03-25T14:07:30.376-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: signing round 1 starting
+2026-03-25T14:07:30.376-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {5,P[6]}: signing round 1 starting
+2026-03-25T14:07:30.376-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: signing round 1 starting
+2026-03-25T14:07:30.376-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: signing round 1 starting
+2026-03-25T14:07:30.376-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {3,P[4]}: signing round 1 starting
+2026-03-25T14:07:30.376-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {4,P[5]}: signing round 1 starting
+2026-03-25T14:07:31.062-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 2 started
+2026-03-25T14:07:31.083-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 2 started
+2026-03-25T14:07:31.108-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 2 started
+2026-03-25T14:07:31.111-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 2 started
+2026-03-25T14:07:31.111-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 2 started
+2026-03-25T14:07:31.131-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 2 started
+2026-03-25T14:07:31.423-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 3 started
+2026-03-25T14:07:31.457-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 3 started
+2026-03-25T14:07:31.522-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 3 started
+2026-03-25T14:07:31.532-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 3 started
+2026-03-25T14:07:31.544-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 3 started
+2026-03-25T14:07:31.547-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 3 started
+2026-03-25T14:07:31.547-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 4 started
+2026-03-25T14:07:31.547-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 4 started
+2026-03-25T14:07:31.547-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 4 started
+2026-03-25T14:07:31.547-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 4 started
+2026-03-25T14:07:31.547-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 4 started
+2026-03-25T14:07:31.547-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 4 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 5 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 5 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 5 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 5 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 5 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 5 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 6 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 6 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 6 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 6 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 6 started
+2026-03-25T14:07:31.549-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 6 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 7 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 7 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 7 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 7 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 7 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 7 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 8 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 8 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 8 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 8 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 8 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 8 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 9 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 9 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 9 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 9 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 9 started
+2026-03-25T14:07:31.553-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 9 started
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 10 started
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 10 started
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: signing finished!
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {3,P[4]}: signing finished!
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 10 started
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: signing finished!
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 10 started
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {5,P[6]}: signing finished!
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 10 started
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: signing finished!
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 10 started
+2026-03-25T14:07:31.554-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {4,P[5]}: signing finished!
+10,5,56.925211,1.182398,58.107609,120,108,1391402,284822
+--- PASS: TestManualBenchConfigs (58.11s)
+PASS
+ok  	github.com/bnb-chain/tss-lib/v2/ecdsa	58.541s
+       58.89 real       495.27 user         9.53 sys
+           218497024  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               30223  page reclaims
+                 702  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+              199494  signals received
+              203874  voluntary context switches
+              553527  involuntary context switches
+          3092396254  instructions retired
+          3040693504  cycles elapsed
+            28985024  peak memory footprint
+=== RUN   TestManualBenchConfigs
+n,t,keygen_s,sign_s,total_s,keygen_msg,sign_msg,keygen_bytes,sign_bytes
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {9,P[10]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {4,P[5]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {6,P[7]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {3,P[4]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {7,P[8]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {5,P[6]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.217-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {8,P[9]}: ecdsa-keygen round 1 starting
+2026-03-25T14:07:32.231-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.232-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.231-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.232-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.232-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.231-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.231-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.231-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.231-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.231-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.232-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.232-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.233-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.242-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.232-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.282-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.268-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.269-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:90	generating the safe primes for the signing proofs, please wait...
+2026-03-25T14:07:32.269-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:32.376-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:75	generating the Paillier modulus, please wait...
+2026-03-25T14:07:39.466-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 7.234307208s
+
+2026-03-25T14:07:40.253-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.254-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.273-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.289-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.305-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.346-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.346-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.346-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.367-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:40.387-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:41.046-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 8.81496225s
+
+2026-03-25T14:07:41.628-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 9.396863917s
+
+2026-03-25T14:07:48.235-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.236-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.236-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.236-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.235-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.236-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.243-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.243-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.244-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:48.287-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:51.606-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 19.374371s
+
+2026-03-25T14:07:52.448-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 20.215851542s
+
+2026-03-25T14:07:54.596-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 22.257201834s
+
+2026-03-25T14:07:56.235-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.235-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.235-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.236-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.236-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.236-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.248-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.249-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:07:56.282-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:00.461-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 28.085892917s
+
+2026-03-25T14:08:01.112-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 28.870826833s
+
+2026-03-25T14:08:02.056-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 29.824645541s
+
+2026-03-25T14:08:02.609-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 30.376905542s
+
+2026-03-25T14:08:02.614-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 30.331493084s
+
+2026-03-25T14:08:04.237-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:04.237-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:04.237-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:04.237-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:04.243-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:04.284-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:04.768-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 32.536244167s
+
+2026-03-25T14:08:07.659-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 35.427263833s
+
+2026-03-25T14:08:07.930-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 35.697978833s
+
+2026-03-25T14:08:10.514-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 38.265861666s
+
+2026-03-25T14:08:10.765-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 38.483071125s
+
+2026-03-25T14:08:10.886-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 38.65359225s
+
+2026-03-25T14:08:11.503-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 39.270342292s
+
+2026-03-25T14:08:12.156-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:83	paillier modulus generated. took 39.924418833s
+
+2026-03-25T14:08:12.243-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:111	still generating primes...
+2026-03-25T14:08:13.330-0400	[34mINFO[0m	tss-lib	keygen/prepare.go:97	safe primes generated. took 40.992269208s
+
+2026-03-25T14:08:21.838-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.038-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {8,P[9]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.143-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.151-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.168-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.207-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {6,P[7]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.217-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.224-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {9,P[10]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.229-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.244-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {7,P[8]}: ecdsa-keygen round 2 started
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.244-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.246-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{9,P[10]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.248-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.245-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{9,P[10]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.249-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.250-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.247-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.251-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{2,P[3]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{1,P[2]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.254-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.252-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.254-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{1,P[2]}
+2026-03-25T14:08:22.254-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.254-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.254-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.254-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{2,P[3]}
+2026-03-25T14:08:22.254-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{3,P[4]}
+2026-03-25T14:08:22.255-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.255-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.255-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.255-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.256-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.256-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{0,P[1]}
+2026-03-25T14:08:22.256-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{3,P[4]}
+2026-03-25T14:08:22.256-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{4,P[5]}
+2026-03-25T14:08:22.256-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.256-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.256-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{0,P[1]}
+2026-03-25T14:08:22.257-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{7,P[8]}
+2026-03-25T14:08:22.257-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{4,P[5]}
+2026-03-25T14:08:22.257-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.257-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{8,P[9]}
+2026-03-25T14:08:22.257-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{7,P[8]}
+2026-03-25T14:08:22.257-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{6,P[7]}
+2026-03-25T14:08:22.258-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{6,P[7]}
+2026-03-25T14:08:22.253-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	modProof not exist:{5,P[6]}
+2026-03-25T14:08:22.258-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{8,P[9]}
+2026-03-25T14:08:22.259-0400	[33mWARN[0m	tss-lib	go-log@v1.0.5/log.go:180	facProof not exist:{5,P[6]}
+2026-03-25T14:08:22.299-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.300-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {6,P[7]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.302-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.304-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.306-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {8,P[9]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.306-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {7,P[8]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.307-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {9,P[10]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.307-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.310-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.317-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 3 started
+2026-03-25T14:08:22.613-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {7,P[8]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.613-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {7,P[8]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.641-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {6,P[7]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.641-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {6,P[7]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.643-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.643-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.654-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {9,P[10]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.654-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {9,P[10]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.668-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.668-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {5,P[6]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.677-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.677-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {3,P[4]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.681-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.682-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.708-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.708-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {4,P[5]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.713-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.713-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.716-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {8,P[9]}: ecdsa-keygen round 4 started
+2026-03-25T14:08:22.716-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {8,P[9]}: ecdsa-keygen finished!
+2026-03-25T14:08:22.720-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {1,P[2]}: signing round 1 starting
+2026-03-25T14:08:22.720-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {4,P[5]}: signing round 1 starting
+2026-03-25T14:08:22.720-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {2,P[3]}: signing round 1 starting
+2026-03-25T14:08:22.720-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {0,P[1]}: signing round 1 starting
+2026-03-25T14:08:22.720-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {3,P[4]}: signing round 1 starting
+2026-03-25T14:08:22.720-0400	[34mINFO[0m	tss-lib	tss/party.go:139	party {5,P[6]}: signing round 1 starting
+2026-03-25T14:08:23.259-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 2 started
+2026-03-25T14:08:23.262-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 2 started
+2026-03-25T14:08:23.291-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 2 started
+2026-03-25T14:08:23.430-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 2 started
+2026-03-25T14:08:23.445-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 2 started
+2026-03-25T14:08:23.485-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 2 started
+2026-03-25T14:08:23.849-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 3 started
+2026-03-25T14:08:23.878-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 3 started
+2026-03-25T14:08:23.893-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 3 started
+2026-03-25T14:08:23.896-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 3 started
+2026-03-25T14:08:23.899-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 3 started
+2026-03-25T14:08:23.904-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 3 started
+2026-03-25T14:08:23.904-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 4 started
+2026-03-25T14:08:23.904-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 4 started
+2026-03-25T14:08:23.904-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 4 started
+2026-03-25T14:08:23.904-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 4 started
+2026-03-25T14:08:23.904-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 4 started
+2026-03-25T14:08:23.904-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 4 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 5 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 5 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 5 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 5 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 5 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 5 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 6 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 6 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 6 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 6 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 6 started
+2026-03-25T14:08:23.907-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 6 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 7 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 7 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 7 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 7 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 7 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 7 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 8 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 8 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 8 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 8 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 8 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 8 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 9 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 9 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 9 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 9 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 9 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 9 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {5,P[6]}: signing round 10 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {5,P[6]}: signing finished!
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {0,P[1]}: signing round 10 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {0,P[1]}: signing finished!
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {1,P[2]}: signing round 10 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {1,P[2]}: signing finished!
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {3,P[4]}: signing round 10 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {3,P[4]}: signing finished!
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {4,P[5]}: signing round 10 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {4,P[5]}: signing finished!
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:176	party {2,P[3]}: signing round 10 started
+2026-03-25T14:08:23.911-0400	[34mINFO[0m	tss-lib	tss/party.go:179	party {2,P[3]}: signing finished!
+10,5,50.499235,1.195835,51.695070,120,108,1391400,284819
+--- PASS: TestManualBenchConfigs (51.70s)
+PASS
+ok  	github.com/bnb-chain/tss-lib/v2/ecdsa	51.999s
+       52.35 real       455.47 user         9.17 sys
+           209731584  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+               28747  page reclaims
+                 702  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+              194754  signals received
+              196805  voluntary context switches
+              504074  involuntary context switches
+          3065438034  instructions retired
+          3041943742  cycles elapsed
+            30770880  peak memory footprint
