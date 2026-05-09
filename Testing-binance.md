@@ -228,3 +228,330 @@ Amortization Insight
     - Keygen cost is amortized across signatures
 
 In practical deployments, the cost of threshold ECDSA is dominated by one-time key generation, while signing scales efficiently.
+
+
+# VMs running commands
+
+## VM configuration
+
+The Jetstream2 VM used for Binance `tss-lib` testing and benchmarking.
+
+- Name: `dkls-test-2`
+- Image: `Featured-Ubuntu24`
+- Flavor: `m3.small`
+- SSH key: `angel-macbook`
+- Web desktop: `No`
+- Guacamole: `No`
+- Install OS updates: `Yes`
+- Network: `auto_allocated_network`
+- Public IP Address: `Automatic`
+
+The VM successfully launched after using `auto_allocated_network`. Using the `public` network initially caused network allocation failures.
+
+---
+
+## Connecting to the VM
+
+SSH was used to remotely access the Jetstream2 VM from the local MacBook terminal.
+
+```bash
+ssh exouser@149.165.171.46
+```
+
+The public IP changed after shelving/unshelving, so the current IP should always be checked from the Jetstream2 instance page before reconnecting.
+
+After connecting successfully, commands executed in the terminal were running directly on the cloud VM instead of the local machine.
+
+---
+
+## Initial VM setup for Go / tss-lib
+
+The following commands updated Ubuntu packages and installed required development dependencies for Go, protobuf, and Binance `tss-lib`.
+
+```bash
+sudo apt update
+
+sudo apt install -y \
+  git \
+  build-essential \
+  curl \
+  make \
+  protobuf-compiler
+```
+
+Some `apt update` warnings appeared about missing translation files and legacy keyrings, but package installation still completed successfully.
+
+---
+
+## Go installation
+
+Go was installed manually from the official Go release archive.
+
+```bash
+cd ~
+
+curl -LO https://go.dev/dl/go1.23.5.linux-amd64.tar.gz
+
+sudo rm -rf /usr/local/go
+
+sudo tar -C /usr/local -xzf go1.23.5.linux-amd64.tar.gz
+
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+
+source ~/.bashrc
+```
+
+Go, protobuf, and Make were then verified.
+
+```bash
+go version
+
+protoc --version
+
+make --version
+```
+
+Observed versions:
+
+```text
+go version go1.22.2 linux/amd64
+libprotoc 3.21.12
+GNU Make 4.3
+```
+
+Note: even though the downloaded archive was named `go1.23.5`, the VM reported Go `1.22.2`. This should be checked later if exact Go version matters for reproducibility.
+
+---
+
+## Cloning the tss-lib fork
+
+The Binance `tss-lib` fork containing the custom benchmarking modifications was cloned directly onto the VM.
+
+```bash
+cd ~
+
+git clone https://github.com/an-cor/tss-lib.git
+
+cd tss-lib
+
+git checkout angel-local-benchmarks
+
+git branch
+```
+
+The expected active branch is:
+
+```text
+* angel-local-benchmarks
+```
+
+The branch contains:
+- custom manual benchmark tests
+- multi-sign benchmark harness
+- saved benchmark result text files
+- local experimental modifications
+
+The repo state was verified using:
+
+```bash
+git status
+```
+
+Expected result:
+
+```text
+On branch angel-local-benchmarks
+Your branch is up to date with 'origin/angel-local-benchmarks'.
+
+nothing to commit, working tree clean
+```
+
+---
+
+## Preparing Go dependencies
+
+Go dependencies were downloaded and cleaned up with:
+
+```bash
+go mod tidy
+```
+
+This downloaded the Go modules required by `tss-lib`, including protobuf, crypto libraries, and testing dependencies.
+
+---
+
+## Running keygen tests
+
+The ECDSA keygen tests were run with:
+
+```bash
+go test -count=1 -v ./ecdsa/keygen
+```
+
+This successfully ran the key generation test suite.
+
+Important observed benchmark output:
+
+```text
+=== KEYGEN BENCHMARK RESULTS ===
+Total Time: 14.18580051s
+Total Messages: 35
+Total Bytes: 691572
+```
+
+The full keygen package completed successfully:
+
+```text
+PASS
+ok github.com/bnb-chain/tss-lib/v2/ecdsa/keygen 88.547s
+```
+
+Notes:
+- The keygen phase includes Paillier modulus generation and safe-prime generation.
+- This explains why keygen takes much longer than signing.
+- Several warning messages appeared, such as `modProof not exist` and `facProof not exist`, but the tests still passed.
+
+---
+
+## Running signing tests
+
+The ECDSA signing tests were run with:
+
+```bash
+go test -count=1 -v ./ecdsa/signing
+```
+
+This successfully ran the signing test suite.
+
+Important observed benchmark output:
+
+```text
+=== BENCHMARK RESULTS ===
+Total Time: 1.183237317s
+Total Messages: 36
+Total Bytes: 59690
+```
+
+The full signing package completed successfully:
+
+```text
+PASS
+ok github.com/bnb-chain/tss-lib/v2/ecdsa/signing 3.532s
+```
+
+Notes:
+- Signing completed much faster than keygen.
+- Signing used fewer bytes than keygen.
+- This supports the earlier observation that keygen dominates runtime and communication cost.
+
+---
+
+## Running custom manual benchmark tests
+
+The custom benchmark tests were run with:
+
+```bash
+go test -count=1 -v ./ecdsa -run TestManual
+```
+
+This matched and ran:
+
+```text
+TestManualBenchConfigs
+TestManualMultiSignHarness
+```
+
+The available custom test names were confirmed with:
+
+```bash
+grep -R "func Test" ecdsa/benchmark_manual_test.go ecdsa/benchmark_multisign_test.go
+```
+
+Output:
+
+```text
+ecdsa/benchmark_manual_test.go:func TestManualBenchConfigs(t *testing.T) {
+ecdsa/benchmark_multisign_test.go:func TestManualMultiSignHarness(t *testing.T) {
+```
+
+---
+
+## Manual benchmark result
+
+The manual benchmark config produced:
+
+```text
+n,t,keygen_s,sign_s,total_s,keygen_msg,sign_msg,keygen_bytes,sign_bytes
+3,2,75.480931,1.183753,76.664684,15,36,414211,59693
+```
+
+Interpretation:
+- For `(n=3, t=2)`, keygen took about `75.48s`.
+- Signing took about `1.18s`.
+- Total end-to-end time was about `76.66s`.
+- Keygen used `15` messages and `414211` bytes.
+- Signing used `36` messages and `59693` bytes.
+
+This again shows that keygen dominates runtime, while signing is relatively small.
+
+---
+
+## Multi-sign benchmark result
+
+The custom multi-sign harness produced:
+
+```text
+n,t,sigs,mode,dkg_time_s,total_sign_time_s,avg_sign_time_s
+3,2,1,Fixed,37.837582,1.142094,1.142094
+```
+
+Interpretation:
+- For `(n=3, t=2)`, one fixed-mode signing session was tested.
+- DKG/keygen took about `37.84s`.
+- Signing took about `1.14s`.
+- Average signing time was about `1.14s`.
+
+---
+
+## Local demo command
+
+The local demo command was tested with:
+
+```bash
+go run ./cmd/localdemo
+```
+
+This did not run successfully.
+
+Observed error:
+
+```text
+cmd/localdemo/main.go:195:2: syntax error: unexpected EOF, expected }
+```
+
+This means the local demo file is currently incomplete or missing a closing brace. This does not affect the successful benchmark tests above, but it should be fixed later if `cmd/localdemo` is needed.
+
+---
+
+## Notes
+
+The VM environment successfully reproduced Binance `tss-lib` execution and benchmarking on cloud infrastructure.
+
+This establishes the following workflow:
+
+```text
+MacBook → GitHub fork → Jetstream2 VM → Binance tss-lib execution
+```
+
+The current VM setup now supports:
+- Go-based `tss-lib` testing
+- ECDSA keygen benchmarks
+- ECDSA signing benchmarks
+- custom manual benchmark harnesses
+- future comparison against DKLS-style experiments
+- later multi-VM distributed testing
+
+Main early observation:
+- Keygen/DKG is the expensive phase.
+- Signing is much faster and uses less communication.
+- This matches the expected threshold ECDSA benchmarking story.
