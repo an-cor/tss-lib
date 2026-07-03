@@ -22,3 +22,8 @@ vendor
 *.swp
 .vscode/*.json
 
+
+# Local build artifacts from manual VM testing
+/localdemo
+/tss_relay
+/tss_party

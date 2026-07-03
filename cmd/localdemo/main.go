@@ -188,6 +188,7 @@ signLoop:
 				break signLoop
 			}
 		}
+	}
 
 	fmt.Println("\nSigning completed (all parties ended).")
 	fmt.Println("Next: extract (r,s) from SignatureData and verify with ecdsa.Verify(pk, msg, r, s).")
