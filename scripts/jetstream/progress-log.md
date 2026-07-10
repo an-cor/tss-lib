@@ -75,3 +75,17 @@ Next:
 - Convert the manual cross-VM smoke commands into a reusable script.
 - Begin replacing hello payloads with serialized tss-lib messages.
 - Start implementing networked keygen for n=3,t=2.
+
+## Cross-VM smoke correction and verification
+
+Correction:
+- The first cross-VM smoke attempt did not pass because port 9100 was already occupied by an old DKLS relay process.
+- Party clients timed out because the new `tss_relay` failed to bind.
+
+Completed:
+- Re-ran the cross-VM smoke test on port 19100.
+- Verified controller relay can route a broadcast hello from party 1 to parties 2 and 3 across Jetstream internal IPs.
+
+Next:
+- Convert this manual cross-VM smoke test into a reusable script.
+- Then begin replacing hello payloads with serialized tss-lib protocol messages.
