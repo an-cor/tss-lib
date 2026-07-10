@@ -38,7 +38,7 @@ echo
 while read -r id name ip user; do
   echo "== party $id: $name / $ip =="
 
-  ssh -i "$SSH_KEY" \
+  ssh -n -i "$SSH_KEY" \
     -o BatchMode=yes \
     -o ConnectTimeout=5 \
     -o StrictHostKeyChecking=accept-new \
