@@ -89,3 +89,14 @@ Completed:
 Next:
 - Convert this manual cross-VM smoke test into a reusable script.
 - Then begin replacing hello payloads with serialized tss-lib protocol messages.
+
+## Reusable cross-VM smoke script update
+
+Completed:
+- Added `scripts/jetstream/run_tss_smoke.sh`.
+- Script builds relay/party binaries, copies party binary to selected VMs, starts controller relay, runs party smoke clients, collects logs, and checks `PARTY_OK`.
+- Verified reusable smoke script for `n=3`.
+
+Next:
+- Start replacing hello payloads with serialized tss-lib protocol messages.
+- Begin networked keygen implementation for `n=3,t=2`.
