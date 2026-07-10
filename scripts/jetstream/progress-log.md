@@ -40,3 +40,14 @@ Next:
 - Sync Binance repo/environment to party VMs.
 - Create the first minimal Binance relay scaffold.
 - Create the first minimal Binance party scaffold.
+
+## Party VM sync update
+
+Completed:
+- Synced current tss-lib working tree from controller to first 3 party VMs.
+- Confirmed first 3 party VMs can build tss-lib locally with `go build ./...`.
+
+Next:
+- Add minimal tss-lib relay scaffold under `cmd/tssbench/relay`.
+- Add minimal tss-lib party scaffold under `cmd/tssbench/party`.
+- Run first network smoke test before implementing full keygen.
