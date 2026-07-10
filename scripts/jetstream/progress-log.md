@@ -125,3 +125,14 @@ Correction:
 
 Next:
 - Begin the real networked tss-lib bridge using `LocalParty`, `Start()`, `outCh`, and `UpdateFromBytes(...)`.
+
+## Local multi-process keygen update
+
+Completed:
+- Added `--mode keygen` to `cmd/tssbench/party`.
+- Verified local multi-process keygen with one controller relay and three separate party processes.
+- Confirmed all three parties reached `KEYGEN_OK`.
+- Confirmed keygen save and summary JSON files are written per party.
+
+Next:
+- Run the same networked keygen flow across the first 3 Jetstream party VMs.
