@@ -63,3 +63,15 @@ Next:
 - Continue Binance network-layer work.
 - Add minimal relay under `cmd/tssbench/relay`.
 - Add minimal party client under `cmd/tssbench/party`.
+
+## Cross-VM smoke update
+
+Completed:
+- Built minimal `tss_relay` and `tss_party` binaries.
+- Verified local controller-only relay smoke test.
+- Verified cross-VM smoke test with controller relay and party clients on the first 3 party VMs.
+
+Next:
+- Convert the manual cross-VM smoke commands into a reusable script.
+- Begin replacing hello payloads with serialized tss-lib messages.
+- Start implementing networked keygen for n=3,t=2.
