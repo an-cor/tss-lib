@@ -51,3 +51,15 @@ Next:
 - Add minimal tss-lib relay scaffold under `cmd/tssbench/relay`.
 - Add minimal tss-lib party scaffold under `cmd/tssbench/party`.
 - Run first network smoke test before implementing full keygen.
+
+## Party VM disk cleanup update
+
+Completed:
+- Cleaned old DKLS result folders, DKLS export artifacts, DKLS build targets, and temporary caches from party VMs.
+- Preserved Binance `~/tss-lib` working copies.
+- Rechecked party VM disk levels with `scripts/jetstream/check_parties.sh 10`.
+
+Next:
+- Continue Binance network-layer work.
+- Add minimal relay under `cmd/tssbench/relay`.
+- Add minimal party client under `cmd/tssbench/party`.
