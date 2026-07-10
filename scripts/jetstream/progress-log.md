@@ -26,3 +26,17 @@ Next:
 - Confirm controller can SSH into party VMs using internal IPs.
 - Create a clean `parties.json`.
 - Start Binance-only relay/party scaffold.
+
+## SSH verification update
+
+Completed:
+- Confirmed controller-to-party SSH works when using ~/.ssh/socioty_controller_key.
+- Verified all 10 party VM internal IPs.
+- Recovered full 10-party inventory from old DKLS controller files.
+- Created clean Binance-owned inventory at scripts/jetstream/parties.json.
+- Added reusable SSH checker at scripts/jetstream/check_parties.sh.
+
+Next:
+- Sync Binance repo/environment to party VMs.
+- Create the first minimal Binance relay scaffold.
+- Create the first minimal Binance party scaffold.

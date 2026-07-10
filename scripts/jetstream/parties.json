@@ -1,0 +1,96 @@
+{
+    "project": "Binance tss-lib Jetstream VM Completion",
+    "n": 10,
+    "t": null,
+    "ssh_key": "~/.ssh/socioty_controller_key",
+    "controller": {
+        "name": "socioty-controller",
+        "hostname": "dkls-test-2",
+        "public_ip": "149.165.171.46",
+        "internal_ip": "10.1.20.67",
+        "user": "exouser",
+        "relay_port": 9100
+    },
+    "parties": [
+        {
+            "id": 1,
+            "name": "socioty-party-01",
+            "hostname": "socioty-party-01-1-of-10",
+            "public_ip": "149.165.173.146",
+            "internal_ip": "10.1.20.228",
+            "user": "exouser"
+        },
+        {
+            "id": 2,
+            "name": "socioty-party-02",
+            "hostname": "socioty-party-01-2-of-10",
+            "public_ip": "149.165.171.226",
+            "internal_ip": "10.1.20.78",
+            "user": "exouser"
+        },
+        {
+            "id": 3,
+            "name": "socioty-party-03",
+            "hostname": "socioty-party-01-3-of-10",
+            "public_ip": "149.165.175.73",
+            "internal_ip": "10.1.20.149",
+            "user": "exouser"
+        },
+        {
+            "id": 4,
+            "name": "socioty-party-04",
+            "hostname": "socioty-party-01-4-of-10",
+            "public_ip": "149.165.169.137",
+            "internal_ip": "10.1.20.92",
+            "user": "exouser"
+        },
+        {
+            "id": 5,
+            "name": "socioty-party-05",
+            "hostname": "socioty-party-01-5-of-10",
+            "public_ip": "149.165.173.123",
+            "internal_ip": "10.1.20.68",
+            "user": "exouser"
+        },
+        {
+            "id": 6,
+            "name": "socioty-party-06",
+            "hostname": "socioty-party-01-6-of-10",
+            "public_ip": "149.165.169.231",
+            "internal_ip": "10.1.20.134",
+            "user": "exouser"
+        },
+        {
+            "id": 7,
+            "name": "socioty-party-07",
+            "hostname": "socioty-party-01-7-of-10",
+            "public_ip": "149.165.168.118",
+            "internal_ip": "10.1.20.125",
+            "user": "exouser"
+        },
+        {
+            "id": 8,
+            "name": "socioty-party-08",
+            "hostname": "socioty-party-01-8-of-10",
+            "public_ip": "149.165.170.17",
+            "internal_ip": "10.1.20.241",
+            "user": "exouser"
+        },
+        {
+            "id": 9,
+            "name": "socioty-party-09",
+            "hostname": "socioty-party-01-9-of-10",
+            "public_ip": "149.165.173.163",
+            "internal_ip": "10.1.20.94",
+            "user": "exouser"
+        },
+        {
+            "id": 10,
+            "name": "socioty-party-10",
+            "hostname": "socioty-party-01-10-of-10",
+            "public_ip": "149.165.173.250",
+            "internal_ip": "10.1.20.141",
+            "user": "exouser"
+        }
+    ]
+}
