@@ -114,3 +114,14 @@ Next:
   - call `Start()`
   - forward `outCh` messages through the relay
   - feed inbound relay messages into `UpdateFromBytes(...)`
+
+## Reusable smoke script cleanup fix
+
+Correction:
+- The first reusable smoke script did not complete after the cleanup phase.
+- The cleanup command used `pkill -f tss_party`, which could match its own remote SSH command.
+- Updated cleanup patterns to `[t]ss_party` and `[t]ss_relay`.
+- Re-ran the reusable cross-VM smoke script successfully for `n=3`.
+
+Next:
+- Begin the real networked tss-lib bridge using `LocalParty`, `Start()`, `outCh`, and `UpdateFromBytes(...)`.

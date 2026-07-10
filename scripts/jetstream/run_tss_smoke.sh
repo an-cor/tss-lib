@@ -73,10 +73,10 @@ done < "$OUT_DIR/parties.txt"
 echo
 
 echo "== cleaning old processes =="
-pkill -f "tss_relay.*${RELAY_PORT}" 2>/dev/null || true
+pkill -f "[t]ss_relay.*${RELAY_PORT}" 2>/dev/null || true
 
 while read -r id ip user name; do
-  ssh -n -i "$SSH_KEY" "$user@$ip" "pkill -f tss_party 2>/dev/null || true"
+  ssh -n -i "$SSH_KEY" "$user@$ip" "pkill -f [t]ss_party 2>/dev/null || true"
 done < "$OUT_DIR/parties.txt"
 
 sleep 1
