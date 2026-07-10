@@ -100,3 +100,17 @@ Completed:
 Next:
 - Start replacing hello payloads with serialized tss-lib protocol messages.
 - Begin networked keygen implementation for `n=3,t=2`.
+
+## Reusable cross-VM smoke script correction
+
+Correction:
+- The first reusable smoke script run failed because the embedded Python party-row printer used an invalid escaped f-string.
+- The script was patched to use `.format(...)` instead.
+- The reusable smoke script has now been verified for `n=3`.
+
+Next:
+- Begin the real networked tss-lib bridge:
+  - wrap `LocalParty`
+  - call `Start()`
+  - forward `outCh` messages through the relay
+  - feed inbound relay messages into `UpdateFromBytes(...)`

@@ -38,7 +38,7 @@ import json, sys
 cfg = json.load(open(sys.argv[1]))
 n = int(sys.argv[2])
 for p in cfg["parties"][:n]:
-    print(f"{p[\"id\"]} {p[\"internal_ip\"]} {p[\"user\"]} {p[\"name\"]}")
+    print("{} {} {} {}".format(p["id"], p["internal_ip"], p["user"], p["name"]))
 ' "$CONFIG" "$N"
 }
 
