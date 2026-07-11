@@ -325,3 +325,17 @@ Completed:
 
 Next:
 - Run two RSS repeat trials for base, fixed multisign, and random multisign matrices.
+
+## RSS repeat-trial runner update
+
+Completed:
+- Added `scripts/jetstream/run_tss_rss_repeat_trials.sh`.
+- Runner executes two trials of:
+  - base matrix
+  - fixed multisign matrix
+  - random multisign matrix
+- Each matrix summary is post-processed into a `.with_rss.csv` file.
+
+Next:
+- Run the two RSS repeat trials.
+- After successful completion, perform final local export and backup.
