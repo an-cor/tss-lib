@@ -27,3 +27,5 @@ vendor
 /localdemo
 /tss_relay
 /tss_party
+**/__pycache__/
+*.pyc

@@ -196,3 +196,18 @@ Completed:
 
 Next:
 - Run the same signing flow across the first 3 Jetstream party VMs.
+
+## Cross-VM signing update
+
+Completed:
+- Ran Binance tss-lib signing across the first 3 Jetstream party VMs.
+- Reused keygen shares from the prior cross-VM keygen run.
+- Configuration: n=3, t=2.
+- Controller ran `tss_relay`; party VMs ran `tss_party --mode sign`.
+- Confirmed all three parties reached `SIGN_OK`.
+- Confirmed all signatures verified with `verify_ok=true`.
+- Collected per-party signature JSON artifacts back to the controller.
+
+Next:
+- Convert the manual cross-VM signing command sequence into a reusable script.
+- Add signing CSV export.
