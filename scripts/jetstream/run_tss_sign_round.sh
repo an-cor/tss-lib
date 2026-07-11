@@ -148,10 +148,6 @@ while read -r id ip user name; do
   fi
 done < "$OUT_DIR/parties.txt"
 
-if ! grep -R '"verify_ok": true' "$OUT_DIR" >/dev/null 2>&1; then
-  echo "WARNING: verify_ok=true not found in local controller logs before artifact collection"
-fi
-
 echo "== collecting remote artifacts =="
 mkdir -p "$OUT_DIR/artifacts"
 

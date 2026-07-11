@@ -222,3 +222,13 @@ Completed:
 Next:
 - Add signing CSV exporter.
 - Then add combined keygen+sign script for comparison runs.
+
+## Signing metrics update
+
+Completed:
+- Removed confusing pre-artifact verify warning from `run_tss_sign_round.sh`.
+- Added `scripts/analysis/export_tss_sign_csv.py`.
+- Verified CSV export for a reusable n=3, t=2 cross-VM signing run.
+
+Next:
+- Add combined keygen+sign script for complete base comparison runs.
