@@ -211,3 +211,14 @@ Completed:
 Next:
 - Convert the manual cross-VM signing command sequence into a reusable script.
 - Add signing CSV export.
+
+## Reusable cross-VM signing script update
+
+Completed:
+- Added `scripts/jetstream/run_tss_sign_round.sh`.
+- Script builds binaries, copies `tss_party` to selected VMs, checks keygen shares, starts controller relay, runs networked signing parties, checks `SIGN_OK`, verifies `verify_ok=true`, and collects signature artifacts.
+- Verified reusable script for n=3, t=2.
+
+Next:
+- Add signing CSV exporter.
+- Then add combined keygen+sign script for comparison runs.
