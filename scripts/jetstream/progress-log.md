@@ -256,3 +256,21 @@ Completed:
 
 Next:
 - Add base matrix driver for keygen+sign configurations.
+
+## Base matrix runner update
+
+Completed:
+- Added `scripts/jetstream/run_tss_base_matrix.sh`.
+- Matrix runs combined keygen+sign for:
+  - n=3,t=2
+  - n=5,t=2
+  - n=5,t=3
+  - n=10,t=5
+  - n=10,t=6
+  - n=10,t=7
+  - n=10,t=8
+- Aggregates each combined summary into `base_matrix_summary.csv`.
+
+Next:
+- Review base matrix output.
+- Then add multisign fixed/random runner.
