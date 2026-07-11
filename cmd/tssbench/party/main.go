@@ -12,6 +12,9 @@ import (
 	"net"
 	"os"
 	"path/filepath"
+	"sort"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/bnb-chain/tss-lib/v2/common"
@@ -35,6 +38,7 @@ func main() {
 	n := flag.Int("n", 0, "number of parties")
 	threshold := flag.Int("t", 0, "threshold value used by tss-lib")
 	signerCountFlag := flag.Int("signers", 0, "sign mode: number of signing participants; defaults to n")
+	signerIDsFlag := flag.String("signer-ids", "", "sign mode: comma-separated actual party IDs to use, e.g. 1,3,4,5")
 	keygenSavePath := flag.String("keygen-save", "", "sign mode: path to keygen LocalPartySaveData JSON")
 	msgValue := flag.String("msg", "42", "sign mode: integer message to sign")
 	relayAddr := flag.String("relay", "127.0.0.1:9100", "relay host:port")
@@ -69,7 +73,7 @@ func main() {
 		if *keygenSavePath == "" {
 			log.Fatalf("sign mode requires -keygen-save")
 		}
-		runSign(*id, *n, *threshold, *signerCountFlag, *relayAddr, *runID, *outDir, *keygenSavePath, *msgValue, *timeout, *startDelay)
+		runSign(*id, *n, *threshold, *signerCountFlag, *signerIDsFlag, *relayAddr, *runID, *outDir, *keygenSavePath, *msgValue, *timeout, *startDelay)
 	default:
 		log.Fatalf("unknown -mode %q; expected smoke, keygen, or sign", *mode)
 	}
@@ -324,7 +328,7 @@ func runKeygen(id, n, threshold int, relayAddr, runID, outDir string, timeout, s
 
 			toID := 0
 			if dest := msg.GetTo(); dest != nil {
-				toID = dest[0].Index + 1
+				toID = partyIDToInt(dest[0])
 			}
 
 			env := Envelope{
@@ -404,6 +408,107 @@ func writeKeygenOutput(outDir string, id, n, threshold int, runID string, save *
 	}
 }
 
+func parseSignerIDs(n, signerCount int, raw string) ([]int, error) {
+	raw = strings.TrimSpace(raw)
+
+	if raw == "" {
+		if signerCount <= 0 {
+			signerCount = n
+		}
+		if signerCount > n {
+			return nil, fmt.Errorf("signer count %d cannot exceed n=%d", signerCount, n)
+		}
+		ids := make([]int, signerCount)
+		for i := 1; i <= signerCount; i++ {
+			ids[i-1] = i
+		}
+		return ids, nil
+	}
+
+	parts := strings.Split(raw, ",")
+	seen := make(map[int]bool, len(parts))
+	ids := make([]int, 0, len(parts))
+
+	for _, part := range parts {
+		part = strings.TrimSpace(part)
+		if part == "" {
+			continue
+		}
+
+		id, err := strconv.Atoi(part)
+		if err != nil {
+			return nil, fmt.Errorf("invalid signer id %q: %w", part, err)
+		}
+		if id < 1 || id > n {
+			return nil, fmt.Errorf("signer id %d outside range 1..%d", id, n)
+		}
+		if seen[id] {
+			return nil, fmt.Errorf("duplicate signer id %d", id)
+		}
+
+		seen[id] = true
+		ids = append(ids, id)
+	}
+
+	if len(ids) == 0 {
+		return nil, fmt.Errorf("empty signer id set")
+	}
+
+	sort.Ints(ids)
+
+	if signerCount > 0 && len(ids) != signerCount {
+		return nil, fmt.Errorf("signer id count %d does not match -signers %d", len(ids), signerCount)
+	}
+
+	return ids, nil
+}
+
+func containsSignerID(ids []int, id int) bool {
+	for _, v := range ids {
+		if v == id {
+			return true
+		}
+	}
+	return false
+}
+
+func signerIDsCSV(ids []int) string {
+	parts := make([]string, 0, len(ids))
+	for _, id := range ids {
+		parts = append(parts, strconv.Itoa(id))
+	}
+	return strings.Join(parts, ",")
+}
+
+func makeSignerPartyIDs(signerIDs []int) tss.SortedPartyIDs {
+	maxID := signerIDs[len(signerIDs)-1]
+	allPIDs := makeDeterministicPartyIDs(maxID)
+
+	selected := make(tss.UnSortedPartyIDs, 0, len(signerIDs))
+	for _, id := range signerIDs {
+		selected = append(selected, allPIDs[id-1])
+	}
+
+	return tss.SortPartyIDs(selected)
+}
+
+func partyIDToInt(pid *tss.PartyID) int {
+	id, err := strconv.Atoi(pid.Id)
+	if err != nil {
+		log.Fatalf("invalid party id in routing: id=%q err=%v", pid.Id, err)
+	}
+	return id
+}
+
+func findPartyIDByInt(pIDs tss.SortedPartyIDs, id int) *tss.PartyID {
+	for _, pid := range pIDs {
+		if partyIDToInt(pid) == id {
+			return pid
+		}
+	}
+	return nil
+}
+
 func loadKeygenSave(path string) kg.LocalPartySaveData {
 	raw, err := os.ReadFile(path)
 	if err != nil {
@@ -418,15 +523,15 @@ func loadKeygenSave(path string) kg.LocalPartySaveData {
 	return save
 }
 
-func runSign(id, n, threshold, signerCount int, relayAddr, runID, outDir, keygenSavePath, msgValue string, timeout, startDelay time.Duration) {
-	if signerCount <= 0 {
-		signerCount = n
+func runSign(id, n, threshold, signerCount int, signerIDsRaw string, relayAddr, runID, outDir, keygenSavePath, msgValue string, timeout, startDelay time.Duration) {
+	signerIDs, err := parseSignerIDs(n, signerCount, signerIDsRaw)
+	if err != nil {
+		log.Fatalf("invalid signer ids: %v", err)
 	}
-	if signerCount > n {
-		log.Fatalf("signer count %d cannot exceed n=%d", signerCount, n)
-	}
-	if id < 1 || id > signerCount {
-		log.Fatalf("signing party id %d outside range 1..%d", id, signerCount)
+	signerCount = len(signerIDs)
+
+	if !containsSignerID(signerIDs, id) {
+		log.Fatalf("party id %d is not in signer set %s", id, signerIDsCSV(signerIDs))
 	}
 
 	if err := os.MkdirAll(outDir, 0o755); err != nil {
@@ -439,9 +544,11 @@ func runSign(id, n, threshold, signerCount int, relayAddr, runID, outDir, keygen
 		log.Printf("warning: keygen save original_index=%d does not match party id=%d", idx, id)
 	}
 
-	allPIDs := makeDeterministicPartyIDs(n)
-	signPIDs := allPIDs[:signerCount]
-	selfPID := signPIDs[id-1]
+	signPIDs := makeSignerPartyIDs(signerIDs)
+	selfPID := findPartyIDByInt(signPIDs, id)
+	if selfPID == nil {
+		log.Fatalf("party id %d not found in signer PartyID set %s", id, signerIDsCSV(signerIDs))
+	}
 	p2pCtx := tss.NewPeerContext(signPIDs)
 
 	msgInt, ok := new(big.Int).SetString(msgValue, 10)
@@ -481,8 +588,8 @@ func runSign(id, n, threshold, signerCount int, relayAddr, runID, outDir, keygen
 		if env.Type != "tss" {
 			return
 		}
-		if env.From < 1 || env.From > signerCount {
-			log.Fatalf("party=%d received invalid from=%d signer_count=%d", id, env.From, signerCount)
+		if !containsSignerID(signerIDs, env.From) {
+			log.Fatalf("party=%d received invalid from=%d signer_ids=%s", id, env.From, signerIDsCSV(signerIDs))
 		}
 
 		wireBytes, err := base64.StdEncoding.DecodeString(env.Payload)
@@ -490,7 +597,10 @@ func runSign(id, n, threshold, signerCount int, relayAddr, runID, outDir, keygen
 			log.Fatalf("party=%d base64 decode failed from=%d: %v", id, env.From, err)
 		}
 
-		fromPID := signPIDs[env.From-1]
+		fromPID := findPartyIDByInt(signPIDs, env.From)
+		if fromPID == nil {
+			log.Fatalf("party=%d could not resolve from=%d in signer_ids=%s", id, env.From, signerIDsCSV(signerIDs))
+		}
 		isBroadcast := env.To == 0
 
 		ok, tssErr := party.UpdateFromBytes(wireBytes, fromPID, isBroadcast)
@@ -537,8 +647,8 @@ func runSign(id, n, threshold, signerCount int, relayAddr, runID, outDir, keygen
 			started = true
 			signStart = time.Now()
 
-			fmt.Printf("START_SIGN id=%d n=%d t=%d signers=%d self_index=%d self_moniker=%s msg=%s keygen_save=%s\n",
-				id, n, threshold, signerCount, selfPID.Index, selfPID.Moniker, msgValue, keygenSavePath)
+			fmt.Printf("START_SIGN id=%d n=%d t=%d signers=%d signer_ids=%s self_index=%d self_moniker=%s msg=%s keygen_save=%s\n",
+				id, n, threshold, signerCount, signerIDsCSV(signerIDs), selfPID.Index, selfPID.Moniker, msgValue, keygenSavePath)
 
 			go func() {
 				if err := party.Start(); err != nil {
@@ -559,7 +669,7 @@ func runSign(id, n, threshold, signerCount int, relayAddr, runID, outDir, keygen
 
 			toID := 0
 			if dest := msg.GetTo(); dest != nil {
-				toID = dest[0].Index + 1
+				toID = partyIDToInt(dest[0])
 			}
 
 			env := Envelope{

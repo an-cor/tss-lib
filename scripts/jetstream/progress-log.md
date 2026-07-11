@@ -298,3 +298,19 @@ Completed:
 
 Next:
 - Add random signer-set support for multisign.
+
+## Random multisign support update
+
+Completed:
+- Added arbitrary signer-set support to `tss_party --mode sign` using `-signer-ids`.
+- Updated `run_tss_sign_round.sh` to accept `SIGNER_IDS`.
+- Updated `run_tss_multisign.sh` to support `MODE=random`.
+- Verified random multisign for n=5,t=3,sigs=3.
+- Confirmed signer sets varied across rounds:
+  - round 01: 1,2,4,5
+  - round 02: 1,2,3,4
+  - round 03: 1,3,4,5
+- Confirmed all random signing rounds verified successfully.
+
+Next:
+- Run full random multisign matrix for n=3,t=2 and n=5,t=3 with 1, 5, and 10 signatures per keygen.

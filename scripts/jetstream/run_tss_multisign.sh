@@ -11,8 +11,8 @@ KEYGEN_PORT="${KEYGEN_PORT:-19212}"
 SIGN_PORT="${SIGN_PORT:-19214}"
 MSG_BASE="${MSG_BASE:-42}"
 
-if [ "$MODE" != "fixed" ]; then
-  echo "ERROR: only MODE=fixed is supported by this script right now"
+if [ "$MODE" != "fixed" ] && [ "$MODE" != "random" ]; then
+  echo "ERROR: MODE must be fixed or random"
   exit 2
 fi
 
@@ -53,6 +53,8 @@ echo "KEYGEN_OUT_DIR=$KEYGEN_OUT_DIR"
 echo
 
 SIGN_SUMMARY_ALL="$OUT_DIR/sign_rounds_summary.csv"
+SIGNER_SETS="$OUT_DIR/signer_sets.csv"
+echo "round,signer_ids" > "$SIGNER_SETS"
 first=1
 
 for i in $(seq 1 "$SIGS"); do
@@ -60,12 +62,38 @@ for i in $(seq 1 "$SIGS"); do
   MSG="$((MSG_BASE + i))"
   SIGN_LOG="$OUT_DIR/sign_round_${ROUND}.log"
 
+  if [ "$MODE" = "fixed" ]; then
+    ROUND_SIGNER_IDS="$(python3 - "$SIGNERS" <<'PY'
+import sys
+count = int(sys.argv[1])
+print(",".join(str(i) for i in range(1, count + 1)))
+PY
+)"
+  else
+    ROUND_SIGNER_IDS="$(python3 - "$N" "$SIGNERS" "$RUN_TAG" "$i" <<'PY'
+import random
+import sys
+
+n = int(sys.argv[1])
+count = int(sys.argv[2])
+seed = sys.argv[3]
+round_no = int(sys.argv[4])
+
+rng = random.Random(f"{seed}-{round_no}")
+ids = sorted(rng.sample(range(1, n + 1), count))
+print(",".join(str(i) for i in ids))
+PY
+)"
+  fi
+
   echo
-  echo "== signing round $ROUND / $SIGS msg=$MSG =="
+  echo "== signing round $ROUND / $SIGS msg=$MSG signer_ids=$ROUND_SIGNER_IDS =="
+  echo "$ROUND,$ROUND_SIGNER_IDS" >> "$SIGNER_SETS"
 
   KEYGEN_RUN="$KEYGEN_RUN" \
   RUN_ID="vm-multisign-sign-${RUN_TAG}-n${N}-t${T}-round${ROUND}" \
   SIGNERS="$SIGNERS" \
+  SIGNER_IDS="$ROUND_SIGNER_IDS" \
   RELAY_PORT="$SIGN_PORT" \
   MSG="$MSG" \
   ./scripts/jetstream/run_tss_sign_round.sh "$N" "$T" | tee "$SIGN_LOG"
@@ -89,7 +117,7 @@ done
 
 echo
 echo "== writing multisign summary =="
-python3 - "$OUT_DIR" "$KEYGEN_OUT_DIR" "$SIGN_SUMMARY_ALL" "$MODE" "$SIGS" <<'PY'
+python3 - "$OUT_DIR" "$KEYGEN_OUT_DIR" "$SIGN_SUMMARY_ALL" "$MODE" "$SIGS" "$SIGNER_SETS" <<'PY'
 import csv
 import sys
 from pathlib import Path
@@ -99,6 +127,7 @@ keygen_dir = Path(sys.argv[2])
 sign_summary_all = Path(sys.argv[3])
 mode = sys.argv[4]
 sigs = int(sys.argv[5])
+signer_sets_path = Path(sys.argv[6])
 
 def read_one(path):
     with open(path, newline="") as f:
@@ -120,6 +149,14 @@ sign_messages = [int(r["total_sent_messages"]) for r in sign_rows]
 sign_bytes = [int(r["total_sent_bytes"]) for r in sign_rows]
 verify_all = all(r["verify_all"] == "True" for r in sign_rows)
 
+signer_sets = ""
+if signer_sets_path.exists():
+    signer_sets = ";".join(
+        line.strip()
+        for line in signer_sets_path.read_text().splitlines()[1:]
+        if line.strip()
+    )
+
 row = {
     "protocol": "tss-lib",
     "n": k["n"],
@@ -127,6 +164,7 @@ row = {
     "signer_count": sign_rows[0]["party_count"],
     "mode": mode,
     "signatures_per_keygen": sigs,
+    "signer_sets": signer_sets,
     "keygen_time_ms": k["keygen_time_ms"],
     "total_sign_time_ms": sum(sign_times),
     "avg_sign_time_ms": round(sum(sign_times) / len(sign_times), 3),
