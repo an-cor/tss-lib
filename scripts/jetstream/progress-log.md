@@ -286,3 +286,15 @@ Completed:
 Next:
 - Add multisign matrix runner for fixed mode.
 - Then add random signer set support.
+
+## Fixed multisign matrix update
+
+Completed:
+- Added `scripts/jetstream/run_tss_multisign_matrix.sh`.
+- Matrix runs fixed multisign for:
+  - n=3,t=2 with 1, 5, and 10 signatures per keygen
+  - n=5,t=3 with 1, 5, and 10 signatures per keygen
+- Aggregates each run into `multisign_matrix_summary.csv`.
+
+Next:
+- Add random signer-set support for multisign.
