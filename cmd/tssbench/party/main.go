@@ -225,6 +225,7 @@ func runKeygen(id, n, threshold int, relayAddr, runID, outDir string, timeout, s
 	var sentBytes int
 	var receivedMessages int
 	var receivedBytes int
+	var keygenStart time.Time
 
 	processInbound := func(env Envelope) {
 		if env.Type != "tss" {
@@ -285,6 +286,8 @@ func runKeygen(id, n, threshold int, relayAddr, runID, outDir string, timeout, s
 			}
 			started = true
 
+			keygenStart = time.Now()
+
 			fmt.Printf("START_KEYGEN id=%d n=%d t=%d self_index=%d self_moniker=%s\n",
 				id, n, threshold, selfPID.Index, selfPID.Moniker)
 
@@ -330,10 +333,11 @@ func runKeygen(id, n, threshold int, relayAddr, runID, outDir string, timeout, s
 				id, toID, msg.IsBroadcast(), len(wireBytes), msg.Type())
 
 		case save := <-endCh:
-			writeKeygenOutput(outDir, id, n, threshold, runID, save, sentMessages, sentBytes, receivedMessages, receivedBytes)
+			keygenElapsed := time.Since(keygenStart)
+			writeKeygenOutput(outDir, id, n, threshold, runID, save, keygenElapsed, sentMessages, sentBytes, receivedMessages, receivedBytes)
 
-			fmt.Printf("KEYGEN_OK id=%d n=%d t=%d sent_messages=%d sent_bytes=%d received_messages=%d received_bytes=%d out_dir=%s\n",
-				id, n, threshold, sentMessages, sentBytes, receivedMessages, receivedBytes, outDir)
+			fmt.Printf("KEYGEN_OK id=%d n=%d t=%d keygen_ms=%d sent_messages=%d sent_bytes=%d received_messages=%d received_bytes=%d out_dir=%s\n",
+				id, n, threshold, keygenElapsed.Milliseconds(), sentMessages, sentBytes, receivedMessages, receivedBytes, outDir)
 			return
 
 		case err := <-tssErrCh:
@@ -352,7 +356,7 @@ func runKeygen(id, n, threshold int, relayAddr, runID, outDir string, timeout, s
 	}
 }
 
-func writeKeygenOutput(outDir string, id, n, threshold int, runID string, save *kg.LocalPartySaveData, sentMessages, sentBytes, receivedMessages, receivedBytes int) {
+func writeKeygenOutput(outDir string, id, n, threshold int, runID string, save *kg.LocalPartySaveData, keygenElapsed time.Duration, sentMessages, sentBytes, receivedMessages, receivedBytes int) {
 	rawPath := filepath.Join(outDir, fmt.Sprintf("keygen_save_party_%02d.json", id))
 	summaryPath := filepath.Join(outDir, fmt.Sprintf("keygen_summary_party_%02d.json", id))
 
@@ -373,6 +377,7 @@ func writeKeygenOutput(outDir string, id, n, threshold int, runID string, save *
 		"n":                 n,
 		"t":                 threshold,
 		"original_index":    originalIndex,
+		"keygen_ms":         keygenElapsed.Milliseconds(),
 		"sent_messages":     sentMessages,
 		"sent_bytes":        sentBytes,
 		"received_messages": receivedMessages,

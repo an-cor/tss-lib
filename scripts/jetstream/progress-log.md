@@ -174,3 +174,13 @@ Correction:
 Next:
 - Add basic metrics extraction for keygen runs.
 - Then add signing mode using saved keygen shares.
+
+## Keygen metrics update
+
+Completed:
+- Added per-party keygen elapsed timing to `tss_party --mode keygen`.
+- Added `scripts/analysis/export_tss_keygen_csv.py`.
+- Verified CSV export for a reusable n=3, t=2 cross-VM keygen run.
+
+Next:
+- Add signing mode using saved keygen shares.
