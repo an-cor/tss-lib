@@ -149,3 +149,16 @@ Completed:
 Next:
 - Convert the manual cross-VM keygen command sequence into a reusable script.
 - Add basic metrics extraction for keygen runtime, messages, and bytes.
+
+## Cross-VM keygen update
+
+Completed:
+- Ran networked Binance tss-lib keygen across the first 3 Jetstream party VMs.
+- Configuration: n=3, t=2.
+- Controller ran `tss_relay`; party VMs ran `tss_party --mode keygen`.
+- Confirmed all three parties reached `KEYGEN_OK`.
+- Collected per-party keygen save and summary JSON files back to the controller.
+
+Next:
+- Convert the manual cross-VM keygen command sequence into a reusable script.
+- Add basic metrics extraction for keygen runtime, messages, and bytes.
