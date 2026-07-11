@@ -34,6 +34,7 @@ func main() {
 	id := flag.Int("id", 0, "party id, 1-based")
 	n := flag.Int("n", 0, "number of parties")
 	threshold := flag.Int("t", 0, "threshold value used by tss-lib")
+	signerCountFlag := flag.Int("signers", 0, "sign mode: number of signing participants; defaults to n")
 	keygenSavePath := flag.String("keygen-save", "", "sign mode: path to keygen LocalPartySaveData JSON")
 	msgValue := flag.String("msg", "42", "sign mode: integer message to sign")
 	relayAddr := flag.String("relay", "127.0.0.1:9100", "relay host:port")
@@ -68,7 +69,7 @@ func main() {
 		if *keygenSavePath == "" {
 			log.Fatalf("sign mode requires -keygen-save")
 		}
-		runSign(*id, *n, *threshold, *relayAddr, *runID, *outDir, *keygenSavePath, *msgValue, *timeout, *startDelay)
+		runSign(*id, *n, *threshold, *signerCountFlag, *relayAddr, *runID, *outDir, *keygenSavePath, *msgValue, *timeout, *startDelay)
 	default:
 		log.Fatalf("unknown -mode %q; expected smoke, keygen, or sign", *mode)
 	}
@@ -417,9 +418,15 @@ func loadKeygenSave(path string) kg.LocalPartySaveData {
 	return save
 }
 
-func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msgValue string, timeout, startDelay time.Duration) {
-	if id < 1 || id > n {
-		log.Fatalf("party id %d outside range 1..%d", id, n)
+func runSign(id, n, threshold, signerCount int, relayAddr, runID, outDir, keygenSavePath, msgValue string, timeout, startDelay time.Duration) {
+	if signerCount <= 0 {
+		signerCount = n
+	}
+	if signerCount > n {
+		log.Fatalf("signer count %d cannot exceed n=%d", signerCount, n)
+	}
+	if id < 1 || id > signerCount {
+		log.Fatalf("signing party id %d outside range 1..%d", id, signerCount)
 	}
 
 	if err := os.MkdirAll(outDir, 0o755); err != nil {
@@ -432,16 +439,17 @@ func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msg
 		log.Printf("warning: keygen save original_index=%d does not match party id=%d", idx, id)
 	}
 
-	pIDs := makeDeterministicPartyIDs(n)
-	selfPID := pIDs[id-1]
-	p2pCtx := tss.NewPeerContext(pIDs)
+	allPIDs := makeDeterministicPartyIDs(n)
+	signPIDs := allPIDs[:signerCount]
+	selfPID := signPIDs[id-1]
+	p2pCtx := tss.NewPeerContext(signPIDs)
 
 	msgInt, ok := new(big.Int).SetString(msgValue, 10)
 	if !ok {
 		log.Fatalf("invalid -msg integer value: %s", msgValue)
 	}
 
-	params := tss.NewParameters(tss.S256(), p2pCtx, selfPID, len(pIDs), threshold)
+	params := tss.NewParameters(tss.S256(), p2pCtx, selfPID, len(signPIDs), threshold)
 
 	tssErrCh := make(chan *tss.Error, 8)
 	outCh := make(chan tss.Message, n*64)
@@ -473,8 +481,8 @@ func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msg
 		if env.Type != "tss" {
 			return
 		}
-		if env.From < 1 || env.From > n {
-			log.Fatalf("party=%d received invalid from=%d", id, env.From)
+		if env.From < 1 || env.From > signerCount {
+			log.Fatalf("party=%d received invalid from=%d signer_count=%d", id, env.From, signerCount)
 		}
 
 		wireBytes, err := base64.StdEncoding.DecodeString(env.Payload)
@@ -482,7 +490,7 @@ func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msg
 			log.Fatalf("party=%d base64 decode failed from=%d: %v", id, env.From, err)
 		}
 
-		fromPID := pIDs[env.From-1]
+		fromPID := signPIDs[env.From-1]
 		isBroadcast := env.To == 0
 
 		ok, tssErr := party.UpdateFromBytes(wireBytes, fromPID, isBroadcast)
@@ -529,8 +537,8 @@ func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msg
 			started = true
 			signStart = time.Now()
 
-			fmt.Printf("START_SIGN id=%d n=%d t=%d self_index=%d self_moniker=%s msg=%s keygen_save=%s\n",
-				id, n, threshold, selfPID.Index, selfPID.Moniker, msgValue, keygenSavePath)
+			fmt.Printf("START_SIGN id=%d n=%d t=%d signers=%d self_index=%d self_moniker=%s msg=%s keygen_save=%s\n",
+				id, n, threshold, signerCount, selfPID.Index, selfPID.Moniker, msgValue, keygenSavePath)
 
 			go func() {
 				if err := party.Start(); err != nil {
@@ -576,10 +584,10 @@ func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msg
 		case sig := <-endCh:
 			signElapsed := time.Since(signStart)
 
-			verifyOK := writeSignatureOutput(outDir, id, n, threshold, runID, msgValue, save, sig, signElapsed, sentMessages, sentBytes, receivedMessages, receivedBytes)
+			verifyOK := writeSignatureOutput(outDir, id, n, threshold, signerCount, runID, msgValue, save, sig, signElapsed, sentMessages, sentBytes, receivedMessages, receivedBytes)
 
-			fmt.Printf("SIGN_OK id=%d n=%d t=%d sign_ms=%d verify_ok=%v sent_messages=%d sent_bytes=%d received_messages=%d received_bytes=%d out_dir=%s\n",
-				id, n, threshold, signElapsed.Milliseconds(), verifyOK, sentMessages, sentBytes, receivedMessages, receivedBytes, outDir)
+			fmt.Printf("SIGN_OK id=%d n=%d t=%d signers=%d sign_ms=%d verify_ok=%v sent_messages=%d sent_bytes=%d received_messages=%d received_bytes=%d out_dir=%s\n",
+				id, n, threshold, signerCount, signElapsed.Milliseconds(), verifyOK, sentMessages, sentBytes, receivedMessages, receivedBytes, outDir)
 			return
 
 		case err := <-tssErrCh:
@@ -598,7 +606,7 @@ func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msg
 	}
 }
 
-func writeSignatureOutput(outDir string, id, n, threshold int, runID, msgValue string, save kg.LocalPartySaveData, sig *common.SignatureData, signElapsed time.Duration, sentMessages, sentBytes, receivedMessages, receivedBytes int) bool {
+func writeSignatureOutput(outDir string, id, n, threshold, signerCount int, runID, msgValue string, save kg.LocalPartySaveData, sig *common.SignatureData, signElapsed time.Duration, sentMessages, sentBytes, receivedMessages, receivedBytes int) bool {
 	rawPath := filepath.Join(outDir, fmt.Sprintf("signature_party_%02d.json", id))
 	summaryPath := filepath.Join(outDir, fmt.Sprintf("signature_summary_party_%02d.json", id))
 
@@ -626,6 +634,7 @@ func writeSignatureOutput(outDir string, id, n, threshold int, runID, msgValue s
 		"party_id":          id,
 		"n":                 n,
 		"t":                 threshold,
+		"signer_count":      signerCount,
 		"msg":               msgValue,
 		"sign_ms":           signElapsed.Milliseconds(),
 		"verify_ok":         verifyOK,

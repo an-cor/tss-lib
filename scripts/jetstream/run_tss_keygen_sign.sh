@@ -3,6 +3,7 @@ set -euo pipefail
 
 N="${1:-3}"
 T="${2:-2}"
+SIGNERS="${SIGNERS:-$((T + 1))}"
 RUN_TAG="${RUN_TAG:-$(date +%Y%m%d-%H%M%S)}"
 KEYGEN_PORT="${KEYGEN_PORT:-19112}"
 SIGN_PORT="${SIGN_PORT:-19114}"
@@ -19,6 +20,7 @@ SIGN_LOG="$COMBINED_OUT_DIR/sign_driver.log"
 echo "RUN_TAG=$RUN_TAG"
 echo "N=$N"
 echo "T=$T"
+echo "SIGNERS=$SIGNERS"
 echo "MSG=$MSG"
 echo "COMBINED_OUT_DIR=$COMBINED_OUT_DIR"
 echo "KEYGEN_PORT=$KEYGEN_PORT"
@@ -50,6 +52,7 @@ echo
 echo "== running signing =="
 KEYGEN_RUN="$KEYGEN_RUN" \
 RUN_ID="vm-sign-${RUN_TAG}" \
+SIGNERS="$SIGNERS" \
 RELAY_PORT="$SIGN_PORT" \
 MSG="$MSG" \
 ./scripts/jetstream/run_tss_sign_round.sh "$N" "$T" | tee "$SIGN_LOG"
@@ -95,6 +98,7 @@ row = {
     "protocol": "tss-lib",
     "n": k["n"],
     "t": k["t"],
+    "signer_count": s.get("party_count", ""),
     "keygen_run_id": k["run_id"],
     "sign_run_id": s["run_id"],
     "keygen_time_ms": keygen_ms,

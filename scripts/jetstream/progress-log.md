@@ -243,3 +243,16 @@ Completed:
 Next:
 - Run base matrix configurations.
 - Add matrix driver once the combined runner is stable across more than one config.
+
+## Signer-count support update
+
+Completed:
+- Added `-signers` support to `tss_party --mode sign`.
+- Updated signing scripts to default signing participants to `t+1`.
+- Re-tested combined keygen+sign for n=3,t=2 with SIGNERS=3.
+- Re-tested combined keygen+sign for n=5,t=3 with SIGNERS=4.
+- Confirmed n=5,t=3 keygen used 5 parties while signing used 4 signers.
+- Confirmed combined summary now includes signer_count.
+
+Next:
+- Add base matrix driver for keygen+sign configurations.

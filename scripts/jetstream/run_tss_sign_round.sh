@@ -4,6 +4,7 @@ set -euo pipefail
 CONFIG="${CONFIG:-scripts/jetstream/parties.json}"
 N="${1:-3}"
 T="${2:-2}"
+SIGNERS="${SIGNERS:-$((T + 1))}"
 KEYGEN_RUN="${KEYGEN_RUN:-}"
 RELAY_PORT="${RELAY_PORT:-19104}"
 TIMEOUT="${TIMEOUT:-180s}"
@@ -31,13 +32,14 @@ get_ssh_key() {
 }
 
 get_party_rows() {
+  local count="${1:-$N}"
   python3 -c '
 import json, sys
 cfg = json.load(open(sys.argv[1]))
 n = int(sys.argv[2])
 for p in cfg["parties"][:n]:
     print("{} {} {} {}".format(p["id"], p["internal_ip"], p["user"], p["name"]))
-' "$CONFIG" "$N"
+' "$CONFIG" "$count"
 }
 
 RELAY_IP="$(get_controller_internal_ip)"
@@ -49,6 +51,7 @@ echo "OUT_DIR=$OUT_DIR"
 echo "CONFIG=$CONFIG"
 echo "N=$N"
 echo "T=$T"
+echo "SIGNERS=$SIGNERS"
 echo "KEYGEN_RUN=$KEYGEN_RUN"
 echo "RELAY=$RELAY"
 echo "TIMEOUT=$TIMEOUT"
@@ -63,7 +66,7 @@ ls -lh tss_relay tss_party
 echo
 
 echo "== selected parties =="
-get_party_rows | tee "$OUT_DIR/parties.txt"
+get_party_rows "$SIGNERS" | tee "$OUT_DIR/parties.txt"
 echo
 
 echo "== copying tss_party and checking keygen shares =="
@@ -117,7 +120,7 @@ while read -r id ip user name; do
 
   echo "-- start sign party_id=$id ip=$ip"
   ssh -n -i "$SSH_KEY" "$user@$ip" \
-    "mkdir -p '$REMOTE_ROOT/party${id}' && ~/tss_party -mode sign -id $id -n $N -t $T -relay '$RELAY' -run '$RUN_ID' -keygen-save '$save_path' -msg '$MSG' -out-dir '$REMOTE_ROOT/party${id}' -timeout '$TIMEOUT' -start-delay '$START_DELAY'" \
+    "mkdir -p '$REMOTE_ROOT/party${id}' && ~/tss_party -mode sign -id $id -n $N -t $T -signers $SIGNERS -relay '$RELAY' -run '$RUN_ID' -keygen-save '$save_path' -msg '$MSG' -out-dir '$REMOTE_ROOT/party${id}' -timeout '$TIMEOUT' -start-delay '$START_DELAY'" \
     > "$OUT_DIR/party${id}.log" 2>&1 &
   party_pids+=("$!")
 done < "$OUT_DIR/parties.txt"
