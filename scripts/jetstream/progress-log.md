@@ -232,3 +232,14 @@ Completed:
 
 Next:
 - Add combined keygen+sign script for complete base comparison runs.
+
+## Combined keygen+sign runner update
+
+Completed:
+- Added `scripts/jetstream/run_tss_keygen_sign.sh`.
+- Script runs cross-VM keygen, exports keygen CSV, runs cross-VM signing using the generated shares, exports signing CSV, and writes a combined keygen+sign summary CSV.
+- Verified combined runner for n=3, t=2.
+
+Next:
+- Run base matrix configurations.
+- Add matrix driver once the combined runner is stable across more than one config.
