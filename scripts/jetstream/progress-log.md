@@ -314,3 +314,14 @@ Completed:
 
 Next:
 - Run full random multisign matrix for n=3,t=2 and n=5,t=3 with 1, 5, and 10 signatures per keygen.
+
+## RSS tracking update
+
+Completed:
+- Added process RSS tracking directly inside `tss_party`.
+- Each keygen/sign party summary JSON now includes `max_rss_kb`.
+- Added `scripts/analysis/add_rss_columns.py` to add RSS columns to summary CSVs.
+- Verified RSS smoke test for n=3,t=2 keygen+sign.
+
+Next:
+- Run two RSS repeat trials for base, fixed multisign, and random multisign matrices.

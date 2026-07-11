@@ -15,6 +15,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"syscall"
 	"time"
 
 	"github.com/bnb-chain/tss-lib/v2/common"
@@ -400,12 +401,21 @@ func writeKeygenOutput(outDir string, id, n, threshold int, runID string, save *
 		"sent_bytes":        sentBytes,
 		"received_messages": receivedMessages,
 		"received_bytes":    receivedBytes,
+		"max_rss_kb":        maxRSSKB(),
 		"saved_at":          time.Now().Format(time.RFC3339Nano),
 	}
 
 	if b, err := json.MarshalIndent(summary, "", "  "); err == nil {
 		_ = os.WriteFile(summaryPath, b, 0o644)
 	}
+}
+
+func maxRSSKB() int64 {
+	var usage syscall.Rusage
+	if err := syscall.Getrusage(syscall.RUSAGE_SELF, &usage); err != nil {
+		return -1
+	}
+	return usage.Maxrss
 }
 
 func parseSignerIDs(n, signerCount int, raw string) ([]int, error) {
@@ -752,6 +762,7 @@ func writeSignatureOutput(outDir string, id, n, threshold, signerCount int, runI
 		"sent_bytes":        sentBytes,
 		"received_messages": receivedMessages,
 		"received_bytes":    receivedBytes,
+		"max_rss_kb":        maxRSSKB(),
 		"r":                 r.String(),
 		"s":                 ss.String(),
 		"saved_at":          time.Now().Format(time.RFC3339Nano),
