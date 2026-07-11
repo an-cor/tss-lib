@@ -162,3 +162,15 @@ Completed:
 Next:
 - Convert the manual cross-VM keygen command sequence into a reusable script.
 - Add basic metrics extraction for keygen runtime, messages, and bytes.
+
+## Reusable keygen script wait fix
+
+Correction:
+- The first reusable keygen script run hung after starting party jobs.
+- Cause: the script waited on all background jobs, including the long-running relay process.
+- Fixed the script to track and wait only for party SSH job PIDs.
+- Re-ran the reusable keygen script successfully for n=3, t=2.
+
+Next:
+- Add basic metrics extraction for keygen runs.
+- Then add signing mode using saved keygen shares.
