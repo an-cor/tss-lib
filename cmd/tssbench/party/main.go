@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/ecdsa"
 	"encoding/base64"
 	"encoding/json"
 	"flag"
@@ -13,7 +14,9 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/bnb-chain/tss-lib/v2/common"
 	kg "github.com/bnb-chain/tss-lib/v2/ecdsa/keygen"
+	sg "github.com/bnb-chain/tss-lib/v2/ecdsa/signing"
 	"github.com/bnb-chain/tss-lib/v2/tss"
 )
 
@@ -27,10 +30,12 @@ type Envelope struct {
 }
 
 func main() {
-	mode := flag.String("mode", "smoke", "mode: smoke or keygen")
+	mode := flag.String("mode", "smoke", "mode: smoke, keygen, or sign")
 	id := flag.Int("id", 0, "party id, 1-based")
 	n := flag.Int("n", 0, "number of parties")
 	threshold := flag.Int("t", 0, "threshold value used by tss-lib")
+	keygenSavePath := flag.String("keygen-save", "", "sign mode: path to keygen LocalPartySaveData JSON")
+	msgValue := flag.String("msg", "42", "sign mode: integer message to sign")
 	relayAddr := flag.String("relay", "127.0.0.1:9100", "relay host:port")
 	runID := flag.String("run", "manual", "run identifier")
 	outDir := flag.String("out-dir", ".", "output directory for protocol artifacts")
@@ -56,8 +61,16 @@ func main() {
 			log.Fatalf("keygen mode requires -t")
 		}
 		runKeygen(*id, *n, *threshold, *relayAddr, *runID, *outDir, *timeout, *startDelay)
+	case "sign":
+		if *threshold <= 0 {
+			log.Fatalf("sign mode requires -t")
+		}
+		if *keygenSavePath == "" {
+			log.Fatalf("sign mode requires -keygen-save")
+		}
+		runSign(*id, *n, *threshold, *relayAddr, *runID, *outDir, *keygenSavePath, *msgValue, *timeout, *startDelay)
 	default:
-		log.Fatalf("unknown -mode %q; expected smoke or keygen", *mode)
+		log.Fatalf("unknown -mode %q; expected smoke, keygen, or sign", *mode)
 	}
 }
 
@@ -388,4 +401,246 @@ func writeKeygenOutput(outDir string, id, n, threshold int, runID string, save *
 	if b, err := json.MarshalIndent(summary, "", "  "); err == nil {
 		_ = os.WriteFile(summaryPath, b, 0o644)
 	}
+}
+
+func loadKeygenSave(path string) kg.LocalPartySaveData {
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		log.Fatalf("read keygen save failed path=%s err=%v", path, err)
+	}
+
+	var save kg.LocalPartySaveData
+	if err := json.Unmarshal(raw, &save); err != nil {
+		log.Fatalf("unmarshal keygen save failed path=%s err=%v", path, err)
+	}
+
+	return save
+}
+
+func runSign(id, n, threshold int, relayAddr, runID, outDir, keygenSavePath, msgValue string, timeout, startDelay time.Duration) {
+	if id < 1 || id > n {
+		log.Fatalf("party id %d outside range 1..%d", id, n)
+	}
+
+	if err := os.MkdirAll(outDir, 0o755); err != nil {
+		log.Fatalf("mkdir out-dir failed: %v", err)
+	}
+
+	save := loadKeygenSave(keygenSavePath)
+
+	if idx, err := save.OriginalIndex(); err == nil && idx != id-1 {
+		log.Printf("warning: keygen save original_index=%d does not match party id=%d", idx, id)
+	}
+
+	pIDs := makeDeterministicPartyIDs(n)
+	selfPID := pIDs[id-1]
+	p2pCtx := tss.NewPeerContext(pIDs)
+
+	msgInt, ok := new(big.Int).SetString(msgValue, 10)
+	if !ok {
+		log.Fatalf("invalid -msg integer value: %s", msgValue)
+	}
+
+	params := tss.NewParameters(tss.S256(), p2pCtx, selfPID, len(pIDs), threshold)
+
+	tssErrCh := make(chan *tss.Error, 8)
+	outCh := make(chan tss.Message, n*64)
+	endCh := make(chan *common.SignatureData, 1)
+
+	party := sg.NewLocalParty(msgInt, params, save, outCh, endCh).(*sg.LocalParty)
+
+	conn, enc, dec := connect(relayAddr)
+	defer conn.Close()
+
+	register(enc, runID, id)
+
+	msgCh, readErrCh := startReader(dec)
+	startCh := make(chan struct{}, 1)
+	deadline := time.After(timeout)
+
+	registered := false
+	startTimerSet := false
+	started := false
+	pending := make([]Envelope, 0)
+
+	var sentMessages int
+	var sentBytes int
+	var receivedMessages int
+	var receivedBytes int
+	var signStart time.Time
+
+	processInbound := func(env Envelope) {
+		if env.Type != "tss" {
+			return
+		}
+		if env.From < 1 || env.From > n {
+			log.Fatalf("party=%d received invalid from=%d", id, env.From)
+		}
+
+		wireBytes, err := base64.StdEncoding.DecodeString(env.Payload)
+		if err != nil {
+			log.Fatalf("party=%d base64 decode failed from=%d: %v", id, env.From, err)
+		}
+
+		fromPID := pIDs[env.From-1]
+		isBroadcast := env.To == 0
+
+		ok, tssErr := party.UpdateFromBytes(wireBytes, fromPID, isBroadcast)
+		if tssErr != nil {
+			log.Fatalf("party=%d signing UpdateFromBytes failed from=%d broadcast=%v err=%v", id, env.From, isBroadcast, tssErr)
+		}
+
+		receivedMessages++
+		receivedBytes += len(wireBytes)
+
+		fmt.Printf("RECV_SIGN_TSS id=%d from=%d to=%d broadcast=%v bytes=%d ok=%v\n",
+			id, env.From, env.To, isBroadcast, len(wireBytes), ok)
+	}
+
+	for {
+		select {
+		case env := <-msgCh:
+			if env.Type == "registered" {
+				registered = true
+				fmt.Printf("REGISTERED id=%d run=%s start_delay=%s\n", id, runID, startDelay)
+
+				if !startTimerSet {
+					startTimerSet = true
+					go func() {
+						time.Sleep(startDelay)
+						startCh <- struct{}{}
+					}()
+				}
+				continue
+			}
+
+			if env.Type == "tss" {
+				if !started {
+					pending = append(pending, env)
+					continue
+				}
+				processInbound(env)
+			}
+
+		case <-startCh:
+			if started {
+				continue
+			}
+			started = true
+			signStart = time.Now()
+
+			fmt.Printf("START_SIGN id=%d n=%d t=%d self_index=%d self_moniker=%s msg=%s keygen_save=%s\n",
+				id, n, threshold, selfPID.Index, selfPID.Moniker, msgValue, keygenSavePath)
+
+			go func() {
+				if err := party.Start(); err != nil {
+					tssErrCh <- err
+				}
+			}()
+
+			for _, env := range pending {
+				processInbound(env)
+			}
+			pending = nil
+
+		case msg := <-outCh:
+			wireBytes, _, err := msg.WireBytes()
+			if err != nil {
+				log.Fatalf("party=%d signing WireBytes failed: %v", id, err)
+			}
+
+			toID := 0
+			if dest := msg.GetTo(); dest != nil {
+				toID = dest[0].Index + 1
+			}
+
+			env := Envelope{
+				Type:            "tss",
+				RunID:           runID,
+				From:            id,
+				To:              toID,
+				Payload:         base64.StdEncoding.EncodeToString(wireBytes),
+				SentAtUnixNanos: time.Now().UnixNano(),
+			}
+
+			if err := enc.Encode(env); err != nil {
+				log.Fatalf("party=%d send signing tss failed: %v", id, err)
+			}
+
+			sentMessages++
+			sentBytes += len(wireBytes)
+
+			fmt.Printf("SEND_SIGN_TSS id=%d to=%d broadcast=%v bytes=%d type=%s\n",
+				id, toID, msg.IsBroadcast(), len(wireBytes), msg.Type())
+
+		case sig := <-endCh:
+			signElapsed := time.Since(signStart)
+
+			verifyOK := writeSignatureOutput(outDir, id, n, threshold, runID, msgValue, save, sig, signElapsed, sentMessages, sentBytes, receivedMessages, receivedBytes)
+
+			fmt.Printf("SIGN_OK id=%d n=%d t=%d sign_ms=%d verify_ok=%v sent_messages=%d sent_bytes=%d received_messages=%d received_bytes=%d out_dir=%s\n",
+				id, n, threshold, signElapsed.Milliseconds(), verifyOK, sentMessages, sentBytes, receivedMessages, receivedBytes, outDir)
+			return
+
+		case err := <-tssErrCh:
+			fmt.Fprintf(os.Stderr, "SIGN_TSS_ERROR id=%d err=%v\n", id, err)
+			os.Exit(1)
+
+		case err := <-readErrCh:
+			fmt.Fprintf(os.Stderr, "SIGN_RELAY_READ_ERROR id=%d err=%v\n", id, err)
+			os.Exit(1)
+
+		case <-deadline:
+			fmt.Fprintf(os.Stderr, "SIGN_TIMEOUT id=%d registered=%v started=%v pending=%d sent=%d received=%d\n",
+				id, registered, started, len(pending), sentMessages, receivedMessages)
+			os.Exit(2)
+		}
+	}
+}
+
+func writeSignatureOutput(outDir string, id, n, threshold int, runID, msgValue string, save kg.LocalPartySaveData, sig *common.SignatureData, signElapsed time.Duration, sentMessages, sentBytes, receivedMessages, receivedBytes int) bool {
+	rawPath := filepath.Join(outDir, fmt.Sprintf("signature_party_%02d.json", id))
+	summaryPath := filepath.Join(outDir, fmt.Sprintf("signature_summary_party_%02d.json", id))
+
+	if raw, err := json.MarshalIndent(sig, "", "  "); err == nil {
+		_ = os.WriteFile(rawPath, raw, 0o644)
+	} else {
+		_ = os.WriteFile(rawPath+".error.txt", []byte(err.Error()), 0o644)
+	}
+
+	r := new(big.Int).SetBytes(sig.R)
+	ss := new(big.Int).SetBytes(sig.S)
+
+	verifyOK := false
+	if save.ECDSAPub != nil {
+		pk := ecdsa.PublicKey{
+			Curve: tss.EC(),
+			X:     save.ECDSAPub.X(),
+			Y:     save.ECDSAPub.Y(),
+		}
+		verifyOK = ecdsa.Verify(&pk, sig.M, r, ss)
+	}
+
+	summary := map[string]interface{}{
+		"run_id":            runID,
+		"party_id":          id,
+		"n":                 n,
+		"t":                 threshold,
+		"msg":               msgValue,
+		"sign_ms":           signElapsed.Milliseconds(),
+		"verify_ok":         verifyOK,
+		"sent_messages":     sentMessages,
+		"sent_bytes":        sentBytes,
+		"received_messages": receivedMessages,
+		"received_bytes":    receivedBytes,
+		"r":                 r.String(),
+		"s":                 ss.String(),
+		"saved_at":          time.Now().Format(time.RFC3339Nano),
+	}
+
+	if b, err := json.MarshalIndent(summary, "", "  "); err == nil {
+		_ = os.WriteFile(summaryPath, b, 0o644)
+	}
+
+	return verifyOK
 }

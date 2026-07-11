@@ -184,3 +184,15 @@ Completed:
 
 Next:
 - Add signing mode using saved keygen shares.
+
+## Local multi-process signing update
+
+Completed:
+- Added `--mode sign` to `cmd/tssbench/party`.
+- Loaded saved keygen shares from prior cross-VM keygen artifacts.
+- Verified local multi-process signing with one relay and three separate party processes.
+- Confirmed all three parties reached `SIGN_OK`.
+- Confirmed each signature verifies with `verify_ok=true`.
+
+Next:
+- Run the same signing flow across the first 3 Jetstream party VMs.
